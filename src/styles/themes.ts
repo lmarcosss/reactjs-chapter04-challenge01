@@ -12,6 +12,10 @@ export const theme = extendTheme({
         bg: "white",
         color: "gray.600",
       },
+      html: {
+        scrollBehavior: "smooth",
+        overflowY: "auto",
+      },
       ...componentsStyles,
     },
   },

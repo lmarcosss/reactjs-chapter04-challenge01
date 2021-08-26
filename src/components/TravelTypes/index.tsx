@@ -1,6 +1,18 @@
-import { Image, Flex, Text } from "@chakra-ui/react";
+import {
+  Image,
+  Flex,
+  Text,
+  useBreakpointValue,
+  UnorderedList,
+  ListItem,
+} from "@chakra-ui/react";
 
 export function TravelTypes() {
+  const isWideVersion = useBreakpointValue({
+    base: false,
+    lg: true,
+  });
+
   const types = [
     {
       image: "cocktail.svg",
@@ -24,7 +36,7 @@ export function TravelTypes() {
     },
   ];
 
-  return (
+  return isWideVersion ? (
     <Flex
       minHeight={["400", "250"]}
       wrap="wrap"
@@ -35,11 +47,28 @@ export function TravelTypes() {
       {types.map((type) => (
         <Flex minWidth="32" direction="column" align="center" key={type.title}>
           <Image w="16" src={`/images/${type.image}`} />
-          <Text color="gray.700" fontWeight="600" fontSize={20}>
+          <Text colorScheme="gray.700" fontWeight="600" fontSize={20}>
             {type.title}
           </Text>
         </Flex>
       ))}
     </Flex>
+  ) : (
+    <UnorderedList
+      display="flex"
+      alignItems="center"
+      justifyContent="center"
+      flexWrap="wrap"
+      mb="8"
+      mt="4"
+    >
+      {types.map((type) => (
+        <ListItem fontSize="24" color="orange.400" mr="7" ml="7" mt="6">
+          <Text fontWeight="500" fontSize="18" color="gray.600">
+            {type.title}
+          </Text>
+        </ListItem>
+      ))}
+    </UnorderedList>
   );
 }

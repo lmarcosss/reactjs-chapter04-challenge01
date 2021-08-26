@@ -12,10 +12,15 @@ export default function Home() {
       <TravelTypes />
 
       <Flex justify="center" direction="column">
-        <Text textAlign="center" fontSize={["24", "30", "36"]} fontWeight="500">
+        <Text textAlign="center" fontSize={["20", "30", "36"]} fontWeight="500">
           Vamos nessa?
         </Text>
-        <Text textAlign="center" fontSize={["24", "30", "36"]} fontWeight="500">
+        <Text
+          textAlign="center"
+          fontSize={["20", "30", "36"]}
+          fontWeight="500"
+          pb="4"
+        >
           Então escolha seu continente
         </Text>
       </Flex>

@@ -6,8 +6,6 @@ import "swiper/swiper.min.css";
 import "swiper/components/navigation/navigation.min.css";
 import "swiper/components/pagination/pagination.min.css";
 
-import styles from "./swiper.module.css";
-
 import SwiperCore, {
   Navigation,
   Pagination,
@@ -25,7 +23,6 @@ export function Swiper() {
         pagination={true}
         mousewheel={true}
         keyboard={true}
-        className={styles.mySwiper}
       >
         <SwiperSlide>
           <Flex
@@ -44,7 +41,12 @@ export function Swiper() {
             >
               Europa
             </Heading>
-            <Text fontWeight="700" fontSize={["12", "18", "24"]} color="white">
+            <Text
+              fontWeight="700"
+              mt="2"
+              fontSize={["14", "18", "24"]}
+              color="gray.200"
+            >
               O continente mais antigo.
             </Text>
           </Flex>
