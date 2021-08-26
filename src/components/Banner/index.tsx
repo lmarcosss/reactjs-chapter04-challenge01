@@ -15,17 +15,20 @@ export function Banner() {
       align="center"
       justify="space-around"
     >
-      <Flex direction="column">
-        <Text fontSize={["24", "30", "36"]} fontWeight="500" color="white">
+      <Flex
+        direction="column"
+        alignItems={isWideVersion ? "center" : "flex-start"}
+      >
+        <Text fontSize={["20", "30", "36"]} fontWeight="500" color="white">
           5 Continentes,
         </Text>
-        <Text fontSize={["24", "30", "36"]} fontWeight="500" color="white">
+        <Text fontSize={["20", "30", "36"]} fontWeight="500" color="white">
           infinitas possibilidades.
         </Text>
-        <Text fontSize={["15", "15", "20"]} fontWeight="400" color="white">
+        <Text fontSize={["14", "15", "20"]} fontWeight="400" color="white">
           Chegou a hora de tirar do papel a viagem que você
         </Text>
-        <Text fontSize={["15", "15", "20"]} fontWeight="400" color="white">
+        <Text fontSize={["14", "15", "20"]} fontWeight="400" color="white">
           sempre sonhou.
         </Text>
       </Flex>

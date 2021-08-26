@@ -4,6 +4,21 @@ import { Header } from "../components/Header";
 import { TravelTypes } from "../components/TravelTypes";
 import { Swiper } from "../components/Swiper";
 
+const continents = [
+  {
+    name: "Europa",
+    subtitle: "O continente mais antigo.",
+    imageURL: "images/europe.png",
+    href: "europe",
+  },
+  {
+    name: "America do Sul",
+    subtitle: "O continente mais novo.",
+    imageURL: "images/europe.png",
+    href: "south-america",
+  },
+];
+
 export default function Home() {
   return (
     <Box align="center">
@@ -25,7 +40,7 @@ export default function Home() {
         </Text>
       </Flex>
 
-      <Swiper />
+      <Swiper continents={continents} />
     </Box>
   );
 }

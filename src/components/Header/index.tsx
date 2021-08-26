@@ -1,6 +1,6 @@
-import { Flex, Image } from "@chakra-ui/react";
+import { Flex, Image, Icon, Link as ChakraLink, Box } from "@chakra-ui/react";
 import { RiArrowLeftSLine } from "react-icons/ri";
-import { Icon, Link as ChakraLink } from "@chakra-ui/react";
+import Link from "next/link";
 
 interface Props {
   isHome?: boolean;
@@ -16,11 +16,16 @@ export function Header({ isHome }: Props) {
       mx="auto"
       align="center"
       justify="center"
+      position="relative"
     >
       {!isHome && (
-        <ChakraLink>
-          <Icon as={RiArrowLeftSLine} fontSize="40" mt="2" />
-        </ChakraLink>
+        <Box position="absolute" left={["4", "16"]}>
+          <Link passHref href="/">
+            <ChakraLink>
+              <Icon as={RiArrowLeftSLine} fontSize="40" />
+            </ChakraLink>
+          </Link>
+        </Box>
       )}
 
       <Image src="/images/logo.png" alt="logo" width="auto" h={[8, 35]} />

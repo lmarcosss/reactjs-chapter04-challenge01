@@ -1,5 +1,6 @@
 import React from "react";
-import { Box, Flex, Heading, Text } from "@chakra-ui/react";
+import { Box, Flex, Heading, Text, Link as ChakraLink } from "@chakra-ui/react";
+import Link from "next/link";
 import { Swiper as SwiperReact, SwiperSlide } from "swiper/react";
 
 import "swiper/swiper.min.css";
@@ -15,7 +16,7 @@ import SwiperCore, {
 
 SwiperCore.use([Navigation, Pagination, Mousewheel, Keyboard]);
 
-export function Swiper() {
+export function Swiper({ continents }) {
   return (
     <Box px={["0", "10", "20"]} py={["0", "10", "10"]}>
       <SwiperReact
@@ -24,79 +25,39 @@ export function Swiper() {
         mousewheel={true}
         keyboard={true}
       >
-        <SwiperSlide>
-          <Flex
-            align="center"
-            justify="center"
-            direction="column"
-            backgroundImage="images/europe.png"
-            backgroundSize="cover"
-            w="100%"
-            height={[250, 300, 450]}
-          >
-            <Heading
-              fontWeight="700"
-              fontSize={["24", "36", "48"]}
-              color="white"
-            >
-              Europa
-            </Heading>
-            <Text
-              fontWeight="700"
-              mt="2"
-              fontSize={["14", "18", "24"]}
-              color="gray.200"
-            >
-              O continente mais antigo.
-            </Text>
-          </Flex>
-        </SwiperSlide>
-
-        <SwiperSlide>
-          <Flex
-            align="center"
-            justify="center"
-            direction="column"
-            backgroundImage="images/europe.png"
-            backgroundSize="cover"
-            w="100%"
-            height={[250, 300, 450]}
-          >
-            <Heading
-              fontWeight="700"
-              fontSize={["24", "36", "48"]}
-              color="white"
-            >
-              Europa
-            </Heading>
-            <Text fontWeight="700" fontSize={["12", "18", "24"]} color="white">
-              O continente mais antigo.
-            </Text>
-          </Flex>
-        </SwiperSlide>
-
-        <SwiperSlide>
-          <Flex
-            align="center"
-            justify="center"
-            direction="column"
-            backgroundImage="images/europe.png"
-            backgroundSize="cover"
-            w="100%"
-            height={[250, 300, 450]}
-          >
-            <Heading
-              fontWeight="700"
-              fontSize={["24", "36", "48"]}
-              color="white"
-            >
-              Europa
-            </Heading>
-            <Text fontWeight="700" fontSize={["12", "18", "24"]} color="white">
-              O continente mais antigo.
-            </Text>
-          </Flex>
-        </SwiperSlide>
+        {continents.map((continent) => (
+          <SwiperSlide>
+            <Link href={`continent/${continent.href}`}>
+              <ChakraLink>
+                <Flex
+                  align="center"
+                  justify="center"
+                  direction="column"
+                  backgroundImage={continent.imageURL}
+                  backgroundSize="cover"
+                  w="100%"
+                  height={[250, 300, 450]}
+                >
+                  <Heading
+                    fontWeight="700"
+                    fontSize={["24", "36", "48"]}
+                    color="white"
+                  >
+                    {continent.name}
+                  </Heading>
+                  <Text
+                    fontWeight="700"
+                    mt="2"
+                    fontSize={["14", "18", "24"]}
+                    color="gray.200"
+                  >
+                    {continent.subtitle}
+                  </Text>
+                </Flex>
+              </ChakraLink>
+            </Link>
+          </SwiperSlide>
+        ))}
       </SwiperReact>
     </Box>
   );
