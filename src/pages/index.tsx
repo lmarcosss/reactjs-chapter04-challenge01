@@ -3,22 +3,7 @@ import { Banner } from "../components/Banner";
 import { Header } from "../components/Header";
 import { TravelTypes } from "../components/TravelTypes";
 import { Swiper } from "../components/Swiper";
-// import { GetStaticProps } from "next";
-
-const continents = [
-  {
-    name: "Europa",
-    subtitle: "O continente mais antigo.",
-    imageURL: "images/europe.png",
-    href: "europe",
-  },
-  {
-    name: "America do Sul",
-    subtitle: "O continente mais novo.",
-    imageURL: "images/europe.png",
-    href: "south-america",
-  },
-];
+import { GetStaticProps } from "next";
 
 interface IProps {
   continents: {
@@ -29,8 +14,6 @@ interface IProps {
 }
 
 export default function Home({ continents }: IProps) {
-  console.log(continents);
-
   return (
     <Box align="center">
       <Header isHome />
@@ -51,29 +34,29 @@ export default function Home({ continents }: IProps) {
         </Text>
       </Flex>
 
-      {/* <Swiper continents={continents} /> */}
+      <Swiper continents={continents} />
     </Box>
   );
 }
 
-// const fetchData = async (url) => {
-//   const response = await fetch(url);
-//   const data = await response.json();
+const fetchData = async (url) => {
+  const response = await fetch(url);
+  const data = await response.json();
 
-//   return data;
-// };
+  return data;
+};
 
-// const getContinents = async () => {
-//   return await fetchData("http://localhost:3000/api/continents");
-// };
+const getContinents = async () => {
+  return await fetchData("https://igniteworldtrip.netlify.app/api/continents");
+};
 
-// export const getStaticProps: GetStaticProps = async () => {
-//   const continents = await getContinents();
+export const getStaticProps: GetStaticProps = async () => {
+  const continents = await getContinents();
 
-//   return {
-//     props: {
-//       continents,
-//     },
-//     revalidate: 60 * 60 * 24, // 24 hours
-//   };
-// };
+  return {
+    props: {
+      continents,
+    },
+    revalidate: 60 * 60 * 24, // 24 hours
+  };
+};
