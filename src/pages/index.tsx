@@ -3,6 +3,7 @@ import { Banner } from "../components/Banner";
 import { Header } from "../components/Header";
 import { TravelTypes } from "../components/TravelTypes";
 import { Swiper } from "../components/Swiper";
+// import { GetStaticProps } from "next";
 
 const continents = [
   {
@@ -19,7 +20,17 @@ const continents = [
   },
 ];
 
-export default function Home() {
+interface IProps {
+  continents: {
+    name: string;
+    thumbnail: string;
+    imageURL: string;
+  }[];
+}
+
+export default function Home({ continents }: IProps) {
+  console.log(continents);
+
   return (
     <Box align="center">
       <Header isHome />
@@ -40,7 +51,29 @@ export default function Home() {
         </Text>
       </Flex>
 
-      <Swiper continents={continents} />
+      {/* <Swiper continents={continents} /> */}
     </Box>
   );
 }
+
+// const fetchData = async (url) => {
+//   const response = await fetch(url);
+//   const data = await response.json();
+
+//   return data;
+// };
+
+// const getContinents = async () => {
+//   return await fetchData("http://localhost:3000/api/continents");
+// };
+
+// export const getStaticProps: GetStaticProps = async () => {
+//   const continents = await getContinents();
+
+//   return {
+//     props: {
+//       continents,
+//     },
+//     revalidate: 60 * 60 * 24, // 24 hours
+//   };
+// };

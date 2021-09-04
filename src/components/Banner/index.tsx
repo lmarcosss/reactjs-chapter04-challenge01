@@ -15,7 +15,7 @@ export function Banner() {
       align="center"
       justify="space-around"
     >
-      <Flex direction="column" alignItems={"flex-start"}>
+      <Flex p={["8", "0"]} direction="column" alignItems={"flex-start"}>
         <Text fontSize={["20", "30", "36"]} fontWeight="500" color="white">
           5 Continentes,
         </Text>

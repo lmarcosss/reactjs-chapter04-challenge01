@@ -5,7 +5,6 @@ export default function Continent() {
   return (
     <Box>
       <Header />
-      {/* <Image src={} /> */}
     </Box>
   );
 }
