@@ -1,7 +1,7 @@
-import { swiperStyle } from "./Swiper/style";
+import swiperStyle from './Swiper/style';
 
 const componentsStyles = {
-  ...swiperStyle,
+	...swiperStyle,
 };
 
 export default componentsStyles;

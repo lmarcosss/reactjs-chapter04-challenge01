@@ -1,34 +1,38 @@
-import { Flex, Image, Icon, Link as ChakraLink, Box } from "@chakra-ui/react";
-import { RiArrowLeftSLine } from "react-icons/ri";
-import Link from "next/link";
+import { Flex, Image, Icon, Box, Button } from '@chakra-ui/react';
+import { RiArrowLeftSLine } from 'react-icons/ri';
+import { useRouter } from 'next/router';
 
 interface Props {
   isHome?: boolean;
 }
 
-export function Header({ isHome }: Props) {
-  return (
-    <Flex
-      as="header"
-      w="100%"
-      h={["16", "20"]}
-      maxWidth={1480}
-      mx="auto"
-      align="center"
-      justify="center"
-      position="relative"
-    >
-      {!isHome && (
-        <Box position="absolute" left={["4", "16"]}>
-          <Link passHref href="/">
-            <ChakraLink>
-              <Icon as={RiArrowLeftSLine} fontSize="40" />
-            </ChakraLink>
-          </Link>
-        </Box>
-      )}
+export function Header({ isHome }: Props): React.ReactElement {
+	const route = useRouter();
 
-      <Image src="/images/logo.png" alt="logo" width="auto" h={[8, 35]} />
-    </Flex>
-  );
+	function pushToHome() {
+		route.back();
+	}
+
+	return (
+		<Flex
+			as="header"
+			w="100%"
+			h={['16', '20']}
+			maxWidth={1480}
+			mx="auto"
+			align="center"
+			justify="center"
+			position="relative"
+		>
+			{!isHome && (
+				<Box position="absolute" left={['4', '16']}>
+					<Button bg="none" _hover={{ bg: 'none' }} onClick={pushToHome}>
+						<Icon as={RiArrowLeftSLine} fontSize="40" />
+					</Button>
+				</Box>
+			)}
+
+			<Image src="/images/logo.png" alt="logo" width="auto" h={[8, 35]} />
+		</Flex>
+	);
 }
