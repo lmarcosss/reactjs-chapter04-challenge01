@@ -14,7 +14,7 @@ export default async (_, res: NextApiResponse): Promise<void> => {
 			name: 'América do Norte',
 			thumbnail: 'north-america',
 			imageURL:
-        'https://images.unsplash.com/photo-1616832880288-a0fc5b56123e?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=676&q=80',
+        'https://images.unsplash.com/photo-1570897620586-a24d2d0b85cd?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1351&q=80',
 		},
 		{
 			id: 3,
