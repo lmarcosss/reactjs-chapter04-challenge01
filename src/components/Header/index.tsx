@@ -10,7 +10,7 @@ export function Header({ isHome }: Props): React.ReactElement {
 	const route = useRouter();
 
 	function pushToHome() {
-		route.back();
+		route.replace('/');
 	}
 
 	return (

@@ -36,7 +36,7 @@ export default function Home({ continents }: IProps): React.ReactElement {
 	);
 }
 
-const fetchData = async (url) => {
+const fetchData = async (url: string) => {
 	const response = await fetch(url);
 	const data = await response.json();
 
@@ -44,7 +44,7 @@ const fetchData = async (url) => {
 };
 
 const getContinents = async () => {
-	return await fetchData('https://igniteworldtrip.netlify.app/api/continents');
+	return await fetchData(`${process.env.API_ENDPOINT}/continents`);
 };
 
 export const getStaticProps: GetStaticProps = async () => {
