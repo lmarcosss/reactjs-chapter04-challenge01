@@ -27,8 +27,8 @@ interface IProps {
 export function Swiper({ continents }: IProps): JSX.Element {
 	const router = useRouter();
 
-	function goToContinent(thumbnail: string) {
-		router.push(`continent/${thumbnail}`);
+	function goToContinent(slug: string) {
+		router.push(`continent/${slug}`);
 	}
 
 	return (
@@ -45,7 +45,7 @@ export function Swiper({ continents }: IProps): JSX.Element {
 						<Button
 							width="100%"
 							height={[250, 300, 450]}
-							onClick={() => goToContinent(continent.thumbnail)}
+							onClick={() => goToContinent(continent.slug)}
 							_hover={{
 								filter: 'brightness(0.7)',
 							}}

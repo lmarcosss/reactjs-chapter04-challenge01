@@ -1,10 +1,11 @@
 import { Box, Text, Flex } from '@chakra-ui/react';
+import { GetStaticProps } from 'next';
 import { Banner } from '../components/Banner';
 import { Header } from '../components/Header';
 import { TravelTypes } from '../components/TravelTypes';
 import { Swiper } from '../components/Swiper';
-import { GetStaticProps } from 'next';
 import { IContinent } from '../types';
+import { fetchData } from '../services/api';
 
 interface IProps {
   continents: IContinent[];
@@ -18,6 +19,9 @@ export default function Home({ continents }: IProps): React.ReactElement {
 			<TravelTypes />
 
 			<Flex justify="center" direction="column">
+				<Flex paddingBottom="8" justifyContent="center" alignItems="center">
+					<Box width="60px" border="1px solid #47585B" />
+				</Flex>
 				<Text textAlign="center" fontSize={['20', '30', '36']} fontWeight="500">
           Vamos nessa?
 				</Text>
@@ -35,13 +39,6 @@ export default function Home({ continents }: IProps): React.ReactElement {
 		</Box>
 	);
 }
-
-const fetchData = async (url: string) => {
-	const response = await fetch(url);
-	const data = await response.json();
-
-	return data;
-};
 
 const getContinents = async () => {
 	return await fetchData(`${process.env.API_ENDPOINT}/continents`);
